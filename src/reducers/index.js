@@ -3,5 +3,6 @@ import { addedReducer } from './addedReducer';
 import { additionalReducer } from './additionalReducer';
 
 export default combineReducers({
-    
+    car: addedReducer,
+    store: additionalReducer
 })
