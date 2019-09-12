@@ -3,16 +3,10 @@ import { removeItemAC } from '../actions';
 import  { connect } from 'react-redux';
 
 const AddedFeature = props => {
-
-  const removeItem = (e, id) => {
-    e.preventDefault();
-    props.removeItemAC(id);
-  };
-
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      {/* <button onClick ={e => removeItem(e, id)} className="button">X</button> */}
+      <button onClick={e => {e.preventDefault(); props.removeItemAC(props.feature)}} className="button">X</button>
       {props.feature.name}
     </li>
   );
@@ -21,8 +15,7 @@ const AddedFeature = props => {
 const mapStateToProps = state => {
   console.log(state)
   return {
-    features: state.store.id,
-    
+    features: state.store,    
   };
 };
 
