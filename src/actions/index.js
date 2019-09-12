@@ -5,6 +5,6 @@ export const addItemAC = item => {
 };
 
 export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const addItemAc = id => {
+export const removeItemAC = id => {
   return { type: REMOVE_ITEM, payload: id };
 };
