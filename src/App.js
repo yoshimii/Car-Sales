@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { removeItemAC, addItemAC } from './actions';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -24,23 +25,23 @@ const App = () => {
     ]
   };
 
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-  };
+  // const removeItemAC = (id) => {
+  //   dispatch({ type: "REMOVE_ITEM", payload: id});
+  // };
 
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-  };
+  // const buyItem = item => {
+  //   dispatch({ type: "REMOVE_ITEM", payload: id});
+  // };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <AddedFeatures car={state.car} addItem={addItemAC} />
       </div>
       <div className="box">
         <AdditionalFeatures  />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <Total additionalPrice={state.additionalPrice} removeItem={removeItemAC}/>
       </div>
     </div>
   );
@@ -55,4 +56,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { removeItemAC })(App);
